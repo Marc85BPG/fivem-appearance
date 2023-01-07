@@ -1,9 +1,5 @@
------------------For support, scripts, and more----------------
---------------- https://discord.gg/wasabiscripts  -------------
----------------------------------------------------------------
-
-ESX = exports["es_extended"]:getSharedObject()
-
+-- For Issues and Tutorial Go Gitbook: https://wasabirobby.gitbook.io/wasabi-scripts/scripts/fivem-appearance
+-- Discord: https://discord.gg/wasabiscripts
 MySQL.ready(function()
 	MySQL.Sync.execute(
 		"CREATE TABLE IF NOT EXISTS `outfits` (" ..
@@ -20,7 +16,6 @@ MySQL.ready(function()
 end)
 
 -- Events
-
 RegisterServerEvent('fivem-appearance:save')
 AddEventHandler('fivem-appearance:save', function(appearance)
 	local xPlayer = ESX.GetPlayerFromId(source)
@@ -44,7 +39,6 @@ AddEventHandler("fivem-appearance:deleteOutfit", function(id)
 end)
 
 -- Callbacks
-
 lib.callback.register('fivem-appearance:getPlayerSkin', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local users = MySQL.query.await('SELECT skin FROM outfits users identifier = ?', {xPlayer.identifier})
