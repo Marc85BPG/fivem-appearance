@@ -1,6 +1,5 @@
------------------For support, scripts, and more----------------
---------------- https://discord.gg/wasabiscripts  -------------
----------------------------------------------------------------
+-- For Issues and Tutorials Go Gitbook: https://wasabirobby.gitbook.io/wasabi-scripts/scripts/fivem-appearance
+-- Discord: https://discord.gg/wasabiscripts
 
 RegisterCommand('skinConvert', function(source, args, raw)
 	if source == 0 then
@@ -21,7 +20,6 @@ AddEventHandler("fivem-appearance:convert", function()
 					tempSkin = json.decode(v2)
 
 					for nck,ncv in pairs(newSkin.components) do
-
 						if nck == 2 then
 							ncv.drawable = tempSkin.mask_1
 							ncv.texture = tempSkin.mask_2
@@ -126,7 +124,6 @@ AddEventHandler("fivem-appearance:convert", function()
 			newSkin.headBlend.skinFirst =  tempSkin.skin
 			newSkin.headBlend.shapeFirst =  tempSkin.face
 			newSkin.headBlend.skinSecond =  tempSkin.skin
-
 			newSkin.hair.style = tempSkin.hair_1
 			newSkin.hair.color = tempSkin.hair_color_1
 			newSkin.hair.highlight = tempSkin.hair_color_2
