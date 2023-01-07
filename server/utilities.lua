@@ -1,7 +1,5 @@
------------------For support, scripts, and more----------------
---------------- https://discord.gg/wasabiscripts  -------------
----------------------------------------------------------------
-
+-- For Issues and Tutorial Go Gitbook: https://wasabirobby.gitbook.io/wasabi-scripts/scripts/fivem-appearance
+-- Discord: https://discord.gg/wasabiscripts
 local curVersion = GetResourceMetadata(GetCurrentResourceName(), "version")
 local resourceName = "fivem-appearance"
 
