@@ -1,7 +1,5 @@
------------------For support, scripts, and more----------------
---------------- https://discord.gg/wasabiscripts  -------------
----------------------------------------------------------------
-ESX = exports["es_extended"]:getSharedObject()
+-- For Issues and Tutorial Go Gitbook: https://wasabirobby.gitbook.io/wasabi-scripts/scripts/fivem-appearance
+-- Discord: https://discord.gg/wasabiscripts
 local shops, savedOutfits = {}, {}
 
 -- ESX Events
@@ -27,7 +25,6 @@ AddEventHandler('esx:onPlayerDeath', function(data)
 end)
 
 -- Appearance Events
-
 RegisterNetEvent('fivem-appearance:skinCommand')
 AddEventHandler('fivem-appearance:skinCommand', function()
 	local config = {
