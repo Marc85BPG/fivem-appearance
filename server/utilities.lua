@@ -22,9 +22,9 @@ CheckVersion = function(err, responseText, headers)
         if curVersion ~= repoVersion then
             Wait(4000)
             print("^0[^3WARNING^0] " .. resourceName .. " is ^1NOT ^0up to date!")
-            print("^0[^3WARNING^0] Your Version: ^1" .. curVersion .. "^0")
-            print("^0[^3WARNING^0] Latest Version: ^2" .. repoVersion .. "^0")
-            print("^0[^3WARNING^0] Get the latest Version from: ^2" .. repoURL .. "^0")
+            print("^0[^3WARNING^0] YOUR Version is: ^1" .. curVersion .. "^0")
+            print("^0[^3WARNING^0] LATEST Version is: ^2" .. repoVersion .. "^0")
+            print("^0[^3WARNING^0] GET the latest Version from: ^2" .. repoURL .. "^0")
         end
     end)
 end
