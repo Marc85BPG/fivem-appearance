@@ -83,7 +83,6 @@ RegisterNetEvent('fivem-appearance:saveOutfit', function()
 end)
 
 AddEventHandler('fivem-appearance:clothingMenu', function(price)
-    
     openShop('clothing_menu', price)
 end)
 
@@ -169,7 +168,7 @@ RegisterNetEvent('fivem-appearance:clothingShop', function(price)
 				description = Strings.change_clothing_desc,
 				arrow = false,
 				event = 'fivem-appearance:clothingMenu',
-                args = price
+				args = price
 			},
 			{
 				title = Strings.browse_outfits_title,
@@ -195,21 +194,36 @@ RegisterNetEvent('fivem-appearance:clothingShop', function(price)
 end)
 
 CreateThread(function()
+
     for i=1, #Config.ClothingShops do
         if Config.ClothingShops[i].blip.enabled then
-            createBlip(Config.ClothingShops[i].coords, Config.ClothingShops[i].blip.sprite, Config.ClothingShops[i].blip.color, Config.ClothingShops[i].blip.string, Config.ClothingShops[i].blip.scale)
+	createBlip(Config.ClothingShops[i].coords, Config.ClothingShops[i].blip.sprite,
+	Config.ClothingShops[i].blip.color, Config.ClothingShops[i].blip.string, Config.ClothingShops[i].blip.scale)
         end
     end
+
+	-- New AccessoiresShops Category 
+    for i = 1, #Config.AccessoiresShops do
+        if Config.AccessoiresShops[i].blip.enabled then
+	createBlip(Config.AccessoiresShops[i].coords, Config.AccessoiresShops[i].blip.sprite,
+	Config.AccessoiresShops[i].blip.color, Config.AccessoiresShops[i].blip.string, Config.AccessoiresShops[i].blip.scale)
+        end
+    end
+
     for i=1, #Config.BarberShops do
         if Config.BarberShops[i].blip.enabled then
-            createBlip(Config.BarberShops[i].coords, Config.BarberShops[i].blip.sprite, Config.BarberShops[i].blip.color, Config.BarberShops[i].blip.string, Config.BarberShops[i].blip.scale)
+	createBlip(Config.BarberShops[i].coords, Config.BarberShops[i].blip.sprite,
+	Config.BarberShops[i].blip.color, Config.BarberShops[i].blip.string, Config.BarberShops[i].blip.scale)
         end
     end
+
     for i=1, #Config.TattooShops do
         if Config.TattooShops[i].blip.enabled then
-            createBlip(Config.TattooShops[i].coords, Config.TattooShops[i].blip.sprite, Config.TattooShops[i].blip.color, Config.TattooShops[i].blip.string, Config.TattooShops[i].blip.scale)
+	createBlip(Config.TattooShops[i].coords, Config.TattooShops[i].blip.sprite,
+	Config.TattooShops[i].blip.color, Config.TattooShops[i].blip.string, Config.TattooShops[i].blip.scale)
         end
     end
+
 end)
 
 CreateThread(function()
@@ -303,15 +317,16 @@ AddEventHandler('skinchanger:loadClothes', function(skin, clothes)
     exports['fivem-appearance']:setPedProps(playerPed, outfit.Props)
 end)
 
+-- Initial SpawnSettings
 RegisterNetEvent('esx_skin:openSaveableMenu')
 AddEventHandler('esx_skin:openSaveableMenu', function(submitCb, cancelCb)
 	local config = {
-		ped = true,
+		ped = true, -- deactivate the PedList for every user in Char Creation
 		headBlend = true,
 		faceFeatures = true,
 		headOverlays = true,
-		components = true,
-		props = true
+		components = false, -- deactivate the Components because a fresh user should adventure the city and buy stuff... Its Roleplay...
+		props = false -- deactivate the props because a fresh user should adventure the city and buy stuff... Its Roleplay...
 	}
 	exports['fivem-appearance']:startPlayerCustomization(function (appearance)
 		if (appearance) then
