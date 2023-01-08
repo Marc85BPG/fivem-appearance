@@ -1,6 +1,5 @@
------------------For support, scripts, and more----------------
---------------- https://discord.gg/wasabiscripts  -------------
----------------------------------------------------------------
+-- For Issues and Tutorial Go Gitbook: https://wasabirobby.gitbook.io/wasabi-scripts/scripts/fivem-appearance
+-- Discord: https://discord.gg/wasabiscripts
 
 closeMenu = function()
     RenderScriptCams(false, false, 0, true, true)
@@ -17,8 +16,7 @@ closeMenu = function()
 end
 
 addCommas = function(n)
-	return tostring(math.floor(n)):reverse():gsub("(%d%d%d)","%1,")
-								  :gsub(",(%-?)$","%1"):reverse()
+	return tostring(math.floor(n)):reverse():gsub("(%d%d%d)","%1,"):gsub(",(%-?)$","%1"):reverse()
 end
 
 createBlip = function(coords, sprite, color, text, scale)
