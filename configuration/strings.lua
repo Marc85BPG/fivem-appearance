@@ -7,11 +7,8 @@ Strings = {
     -- Notifications --
     success = 'Success',
     success_desc = 'You have successfully paid $%s for a new look!',
-
     no_funds = 'Lacking funds',
     no_funds_desc = 'You do not have enough funds in the bank for this',
-
-    -- Menus --
 
     -- Main clothing shop menu
     clothing_shop_title = 'Shop Menu',
