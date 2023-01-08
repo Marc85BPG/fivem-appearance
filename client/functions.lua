@@ -7,7 +7,6 @@ closeMenu = function()
     DisplayRadar(true)
     SetNuiFocus(false, false)
     SetEntityInvincible(PlayerPedId(), false)
-
     SetNuiFocus(false, false)
     SendNUIMessage{
         type = 'appearance_hide',
@@ -32,15 +31,24 @@ end
 
 consolidateShops = function()
     local shops = {}
+
     for _,v in ipairs(Config.ClothingShops) do
         shops[#shops + 1] = {coords = v.coords, distance = v.distance, price = v.price, store = 'clothing'}
     end
+
     for _,v in ipairs(Config.BarberShops) do
         shops[#shops + 1] = {coords = v.coords, distance = v.distance, price = v.price, store = 'barber'}
     end
+
     for _,v in ipairs(Config.TattooShops) do
         shops[#shops + 1] = {coords = v.coords, distance = v.distance, price = v.price, store = 'tattoo'}
     end
+
+    -- added AccessoiresShops
+    for _, v in ipairs(Config.AccessoiresShops) do
+        shops[#shops + 1] = { coords = v.coords, distance = v.distance, price = v.price, store = 'accessoires' }
+    end
+
     return shops
 end
 
@@ -49,9 +57,13 @@ showTextUI = function(store)
         store = Strings.clothing_menu
     elseif store == 'barber' then
         store = Strings.barber_menu
+	-- added AccessoiresShops
+    elseif store == 'accessoires' then
+        store = Strings.clothing_menu
     else
         store = Strings.tattoo_menu
     end
+
     return store
 end
 
@@ -75,6 +87,18 @@ openShop = function(store, price)
                 props = true,
                 tattoos = false
             }
+		-- added AccessoiresShops
+        elseif store == 'accessoires' then
+            config = {
+                ped = false,
+                headBlend = false,
+                faceFeatures = false,
+                headOverlays = false,
+                components = false,
+                props = true,
+                tattoos = false
+            }
+
         elseif store == 'barber' then
             config = {
                 ped = false,
