@@ -321,7 +321,7 @@ end)
 RegisterNetEvent('esx_skin:openSaveableMenu')
 AddEventHandler('esx_skin:openSaveableMenu', function(submitCb, cancelCb)
 	local config = {
-		ped = true, -- deactivate the PedList for every user in Char Creation
+		ped = false, -- deactivate the PedList for every user in Char Creation
 		headBlend = true,
 		faceFeatures = true,
 		headOverlays = true,
